@@ -8,13 +8,6 @@ public class Kauppa {
     private ViitteenTekija viitegeneraattori;
     private String kaupanTili;
 
-    public Kauppa() {
-        varasto = Varasto.getInstance();
-        pankki = Pankki.getInstance();
-        viitegeneraattori = Viitegeneraattori.getInstance();
-        kaupanTili = "33333-44455";
-    }
-
     public Kauppa(Sailytyslaitos varasto, Rahalaitos pankki, ViitteenTekija viitegeneraattori) {
         this.varasto = varasto;
         this.pankki = pankki;
