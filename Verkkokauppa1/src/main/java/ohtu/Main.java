@@ -13,11 +13,12 @@ public class Main {
     public static void main(String[] args) {
         ApplicationContext ctx = new FileSystemXmlApplicationContext("src/main/resources/spring-context.xml");
         
-        Kirjanpito kirjanpito      = ctx.getBean(Kirjanpito.class);
+        
+        Kirjanpito kirjanpito      = (Kirjanpito) ctx.getBean("kirjanpito");
 //        Varasto varasto            = ctx.getBean(Varasto.class);
 //        Pankki pankki              = ctx.getBean(Pankki.class);
 //        Viitegeneraattori viitegen = ctx.getBean(Viitegeneraattori.class);
-        Kauppa kauppa              = ctx.getBean(Kauppa.class);
+        Kauppa kauppa              = (Kauppa) ctx.getBean("kauppa");
 
 
         // kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
@@ -41,4 +42,24 @@ public class Main {
             System.out.println(tapahtuma);
         }
     }
+//    <bean id="kirjanpito" class="ohtu.verkkokauppa.Kirjanpito">
+//    </bean>
+//    
+//    <bean id="viitegeneraattori" class="ohtu.verkkokauppa.Viitegeneraattori">
+//    </bean>
+//
+//    <bean id="varasto" class="ohtu.verkkokauppa.Varasto">
+//        <constructor-arg ref="kirjanpito" />
+//    </bean>
+//    
+//    <bean id="pankki" class="ohtu.verkkokauppa.Pankki">
+//        <constructor-arg ref="kirjanpito" />
+//    </bean>
+//    
+//    <bean id="kauppa" class="ohtu.verkkokauppa.Kauppa">
+//        <constructor-arg ref="varasto" />
+//        <constructor-arg ref="pankki" />
+//        <constructor-arg ref="viitegeneraattori" />
+//    </bean>
 }
+
